@@ -1,0 +1,29 @@
+from faker import Faker
+
+while True:
+    gerador = int(input("Deseja gerar um cadastro? 1 para sim e 0 para sair do programa: "))
+    if gerador == 1:
+        fake = Faker('pt_BR')
+        nome = fake.name()
+        rg = fake.numerify(text='#########')
+        cpf = fake.numerify(text='###########')
+        email = fake.email()
+        idade = fake.random_int(min=18, max=99)
+        endereco = fake.street_address()
+        numero_endereco = fake.building_number()
+        cep = fake.numerify(text='########')
+        senha = fake.password(length=10, special_chars=False, upper_case=False)
+        print("Nome:", nome)
+        print("RG:", rg)
+        print("CPF:", cpf)
+        print("Email:", email)
+        print("Idade:", idade)
+        print("Endereço:", endereco)
+        print("Número de endereço:", numero_endereco)
+        print("CEP:", cep)
+        print("Senha:", senha)
+        print(f"O cadastro gerado foi: {nome},{rg},{cpf},{email},{idade},{endereco},{numero_endereco},{cep},{senha}")
+    else:
+        break
+
+
